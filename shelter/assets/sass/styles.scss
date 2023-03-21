@@ -1,6 +1,8 @@
 $color-primary: #F1CDB3;
+$color-primary-light: #FDDCC4;
 $color-white: #FFFFFF;
 $color-dark-s: #CDCDCD;
+$color-dark-3xl: #292929;
 
 @font-face {
     font-family: 'Georgia';
@@ -29,11 +31,64 @@ a {
     text-decoration: none;
 }
 
+.btn {    
+    border-radius: 100px;
+    cursor: pointer;
+    outline: none;
+    &_primary {
+        width: 207px;
+        height: 52px;
+        background: $color-primary;
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+        color: $color-dark-3xl;
+    }
+    &:hover {
+        background-color: $color-primary-light;
+    }
+}
+
+
+
 .start-screen {
     min-height: 908px;
     background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     padding-top: 30px;
+    &__wrapper {
+        margin: 90px auto 0;
+        padding-top: 163px;
+        width: 1200px;
+        min-height: 728px;
+        background: url(../img/start-screen-puppy.png) no-repeat right bottom / 698px;
+    }
+    &__content {
+        width: 460px;
+        min-height: 322px;
+    }
+    &__heading {
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 130%;
+        color: $color-white;
+    }
+    &__subheading {
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 160%;
+        color: $color-dark-s;
+        margin: 42px 0;
+    }
 }
+
+
 
 .header {
     width: 1200px;
@@ -51,6 +106,9 @@ a {
             letter-spacing: 0.06em;
             a {
                 color: $color-primary;
+                &:hover {
+                    color: $color-primary-light;
+                }
             }
         }
         &__subtitle {
@@ -96,7 +154,22 @@ a {
 }
 
 @media (max-width: 992px) {
+    .btn {
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
     .header {
+        logo {
+            &__title {
+                a {
+                    &:hover {
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
         .nav {
             &__link {
                 &:hover {
