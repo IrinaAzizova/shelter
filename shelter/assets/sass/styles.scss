@@ -2,9 +2,22 @@ $color-primary: #F1CDB3;
 $color-primary-light: #FDDCC4;
 $color-white: #FFFFFF;
 $color-dark-s: #CDCDCD;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
 $color-dark-3xl: #292929;
 
-@font-face {
+@mixin georgia_400 {
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    font-weight: 400;
+}
+@mixin arial_400 {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* @font-face {
     font-family: 'Georgia';
     src: url('../fonts/georgia.ttf') format('truetype');
     font-display: swap;
@@ -14,7 +27,7 @@ $color-dark-3xl: #292929;
     font-family: 'Arial';
     src: url('../fonts/ArialMdm.ttf') format('truetype');
     font-display: swap;
-}
+} */
 
 * {
     box-sizing: border-box;
@@ -39,9 +52,7 @@ a {
         width: 207px;
         height: 52px;
         background: $color-primary;
-        font-family: 'Georgia';
-        font-style: normal;
-        font-weight: 400;
+        @include georgia_400;
         font-size: 17px;
         line-height: 130%;
         letter-spacing: 0.06em;
@@ -70,18 +81,14 @@ a {
         min-height: 322px;
     }
     &__heading {
-        font-family: 'Georgia';
-        font-style: normal;
-        font-weight: 400;
+        @include georgia_400;
         font-size: 44px;
         line-height: 130%;
         color: $color-white;
     }
     &__subheading {
-        font-family: 'Arial';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
+        @include arial_400;
+        font-size: 14px;
         line-height: 160%;
         color: $color-dark-s;
         margin: 42px 0;
@@ -98,9 +105,7 @@ a {
     .logo {
         text-align: center;
         &__title {
-            font-family: 'Georgia';
-            font-style: normal;
-            font-weight: 400;
+            @include georgia_400;
             font-size: 32px;
             line-height: 110%;
             letter-spacing: 0.06em;
@@ -113,9 +118,7 @@ a {
         }
         &__subtitle {
             margin-top: 10px;
-            font-family: 'Arial';
-            font-style: normal;
-            font-weight: 400;
+            @include arial_400;
             font-size: 13px;
             line-height: 15px;
             letter-spacing: 0.1em;
@@ -133,9 +136,7 @@ a {
             justify-content: space-between;
         }
         &__link {
-            font-family: 'Arial';
-            font-style: normal;
-            font-weight: 400;
+            @include arial_400;
             font-size: 15px;
             line-height: 160%;
             color: $color-dark-s;
@@ -152,6 +153,50 @@ a {
         }
     }
 }
+
+
+
+.about {
+    min-height: 588px;
+    background-color: $color-white;
+    padding: 80px 0 100px;
+    .container {
+        padding: 0 215px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__pets {
+        width: 300px;
+        height: 408px;
+        overflow: hidden;
+        img {
+            width: 300px;
+        }
+    }
+    &__wrapper {
+        width: 430px;
+        height: 380px;
+    }
+    &__heading {
+        @include georgia_400;
+        font-size: 35px;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }
+    &__subheading {
+        margin-top: 25px;
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+        color: $color-dark-xl;
+    }
+}
+
+
+
 
 @media (max-width: 992px) {
     .btn {
