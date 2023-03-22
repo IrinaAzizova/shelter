@@ -5,6 +5,8 @@ $color-dark-s: #CDCDCD;
 $color-dark-l: #545454;
 $color-dark-xl: #4C4C4C;
 $color-dark-3xl: #292929;
+$color-light-l: #F6F6F6;
+$color-light-s: #FAFAFA;
 
 @mixin georgia_400 {
     font-family: 'Georgia', serif;
@@ -48,18 +50,38 @@ a {
     border-radius: 100px;
     cursor: pointer;
     outline: none;
+    padding: 15px 45px;
+    border: none;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $color-primary-light;
+    }
     &_primary {
-        width: 207px;
-        height: 52px;
         background: $color-primary;
         @include georgia_400;
         font-size: 17px;
-        line-height: 130%;
         letter-spacing: 0.06em;
         color: $color-dark-3xl;
     }
-    &:hover {
-        background-color: $color-primary-light;
+    &_secondary {        
+        border: 2px solid $color-primary;
+        background-color: transparent;
+    }
+    &_pets {
+        display: block;
+        margin: 60px auto 0;
+    }
+}
+
+
+.heading {
+    @include georgia_400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+    &_tac {
+        text-align: center;
     }
 }
 
@@ -143,9 +165,7 @@ a {
             transition: all 0.3s;
             display: block;
             &:hover {
-                color: $color-primary;
-                transform: scale(1.5);
-                -webkit-transform: scale(1.1);
+                color: $color-light-s;
             }
             &_active {
                 border-bottom: solid 3px $color-primary;
@@ -177,13 +197,6 @@ a {
         width: 430px;
         height: 380px;
     }
-    &__heading {
-        @include georgia_400;
-        font-size: 35px;
-        line-height: 130%;
-        letter-spacing: 0.06em;
-        color: $color-dark-l;
-    }
     &__subheading {
         margin-top: 25px;
         font-family: 'Arial';
@@ -193,6 +206,72 @@ a {
         line-height: 160%;
         color: $color-dark-xl;
     }
+}
+
+
+
+.pets {
+    min-height: 877px;
+    background: $color-light-l;
+    padding: 80px 0 100px;
+    &__slider {
+        padding-top: 60px;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .slider {
+            &__wrapper {
+                width: 990px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+            }
+            &__arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 52px;
+                height: 52px;
+                padding: 0;
+                &_next {
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+
+
+.pet-card {
+    max-width: 270px;
+    min-height: 435px;
+    background: $color-light-s;
+    border-radius: 9px;
+    text-align: center;
+    &:hover {
+        background-color: $color-white;
+        .btn_secondary {
+            background-color: $color-primary-light;
+        }
+    }
+    &__img {
+        width: 270px;
+        border-radius: 9px 9px 0 0;      
+    }
+    &__title {
+        margin: 30px auto;
+        @include georgia_400;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }  
 }
 
 
@@ -218,10 +297,22 @@ a {
         .nav {
             &__link {
                 &:hover {
-                    color: $color-dark-s;;
-                    transform: scale(1);
-                    -webkit-transform: scale(1);
+                    color: $color-dark-s;
                 }
+            }
+        }
+    }
+
+    .pet-card {
+        max-width: 270px;
+        min-height: 435px;
+        background: $color-light-s;
+        border-radius: 9px;
+        text-align: center;
+        &:hover {
+            background-color: $color-white;
+            .btn_secondary {
+                background-color: $color-primary-light;
             }
         }
     }
