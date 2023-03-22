@@ -173,6 +173,28 @@ a {
             }
         }
     }
+    &_white {
+        margin: 30px 40px;
+        a {                    
+            color: $color-dark-l;
+            &:hover {
+                color: $color-dark-3xl;
+            }
+        }
+        .logo {
+            &__subtitle {
+                color: $color-dark-3xl;
+            }
+        }
+        .nav {
+            &__link {
+                color: $color-dark-l;
+                &:hover {
+                    color: $color-dark-3xl;
+                }
+            }
+        }
+    }
 }
 
 
@@ -520,6 +542,23 @@ a {
     a {
         &:hover {
             color: $color-primary;
+        }
+    }
+
+    .header {
+        &_white {
+            a {
+                &:hover {
+                    color: $color-dark-l;
+                }
+            }
+            .nav {
+                &__link {
+                    &:hover {
+                        color: $color-dark-l;
+                    }
+                }
+            }
         }
     }
            
