@@ -8,6 +8,7 @@ $color-dark-xl: #4C4C4C;
 $color-dark-3xl: #292929;
 $color-light-l: #F6F6F6;
 $color-light-s: #FAFAFA;
+$color-black: #000000;
 
 @mixin georgia_400 {
     font-family: 'Georgia', serif;
@@ -430,6 +431,84 @@ a {
 
 
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(41, 41, 41, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    &-window {
+        width: 900px;
+        height: 500px;
+        background: $color-light-s;
+        border-radius: 9px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+            box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+        }
+        color: $color-black;
+    }
+    &__close {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: -52px;
+        top: -52px;
+    }
+    &__img {
+        border-radius: 9px 0px 0px 9px;
+        width: 500px;
+    }
+    &__content {
+        margin: 50px 20px 0 0;
+        @include georgia_400;
+    }
+    &__name {
+        color: $color-black;
+    }
+    &__breed {
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+    }
+    &__descr {
+        margin: 40px 0;
+        font-size: 15px;
+        line-height: 110%;
+        letter-spacing: 0.06em;
+    }
+    &__list {
+        list-style-type: none;
+        @include georgia_400;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 110%;
+        letter-spacing: 0.06em;
+        span {
+            font-weight: 400;
+        }
+    }
+    &__item {
+        margin-top: 11px;
+    }
+}
+
+
+
 
 @media (max-width: 992px) {
     .btn {
@@ -438,25 +517,12 @@ a {
         }
     }
 
-    .header {
-        logo {
-            &__title {
-                a {
-                    &:hover {
-                        color: $color-primary;
-                    }
-                }
-            }
-        }
-        .nav {
-            &__link {
-                &:hover {
-                    color: $color-dark-s;
-                }
-            }
+    a {
+        &:hover {
+            color: $color-primary;
         }
     }
-
+           
     .pet-card {
         max-width: 270px;
         min-height: 435px;
@@ -468,6 +534,12 @@ a {
             .btn_secondary {
                 background-color: $color-primary-light;
             }
+        }
+    }
+
+    .modal-window {        
+        &:hover {
+            box-shadow: none;
         }
     }
 }
