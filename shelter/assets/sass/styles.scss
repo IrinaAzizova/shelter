@@ -3,6 +3,7 @@ $color-primary-light: #FDDCC4;
 $color-white: #FFFFFF;
 $color-dark-s: #CDCDCD;
 $color-dark-l: #545454;
+$color-dark-m: #B2B2B2;
 $color-dark-xl: #4C4C4C;
 $color-dark-3xl: #292929;
 $color-light-l: #F6F6F6;
@@ -309,6 +310,65 @@ a {
         font-size: 20px;
         letter-spacing: 0.06em;
         color: $color-dark-l;
+    }
+}
+
+
+
+.donation {
+    min-height: 462px;
+    background: $color-light-l;
+    padding: 80px 0 100px;
+    .container {
+        padding: 0 183px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__img {
+        width: 505px;
+        img {
+            width: 505px;
+        }
+    }
+    &__wrapper {
+        width: 380px;
+        min-height: 282px;
+    }
+    &__subheading {
+        @include georgia_400;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+        margin-top: 20px;
+    }
+    &__card {
+        padding: 10px 15px;
+        width: 349px;
+        height: 43px;
+        background: $color-primary;
+        border-radius: 9px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        img {
+            width: 30px;
+            margin-right: 15px;
+        }
+    }
+    &__card-number {
+        @include georgia_400;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }
+    &__descr {
+        margin-top: 20px;
+        @include arial_400;
+        font-style: italic;
+        font-size: 12px;
+        line-height: 150%;
+        color: $color-dark-m;
     }
 }
 
