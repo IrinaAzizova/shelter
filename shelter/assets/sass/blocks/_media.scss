@@ -1,0 +1,50 @@
+@media (max-width: 992px) {
+    .btn {
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    a {
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    .header {
+        &_white {
+            a {
+                &:hover {
+                    color: $color-dark-l;
+                }
+            }
+            .nav {
+                &__link {
+                    &:hover {
+                        color: $color-dark-l;
+                    }
+                }
+            }
+        }
+    }
+           
+    .pet-card {
+        max-width: 270px;
+        min-height: 435px;
+        background: $color-light-s;
+        border-radius: 9px;
+        text-align: center;
+        &:hover {
+            background-color: $color-white;
+            .btn_secondary {
+                background-color: $color-primary-light;
+            }
+        }
+    }
+
+    .modal-window {        
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}

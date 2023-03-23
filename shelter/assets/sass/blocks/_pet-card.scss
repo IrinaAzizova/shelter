@@ -1,0 +1,25 @@
+.pet-card {
+    max-width: 270px;
+    min-height: 435px;
+    background: $color-light-s;
+    border-radius: 9px;
+    text-align: center;
+    &:hover {
+        background-color: $color-white;
+        .btn_secondary {
+            background-color: $color-primary-light;
+        }
+    }
+    &__img {
+        width: 270px;
+        border-radius: 9px 9px 0 0;      
+    }
+    &__title {
+        margin: 30px auto;
+        @include georgia_400;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }  
+}

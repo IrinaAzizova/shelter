@@ -1,0 +1,31 @@
+.about {
+    min-height: 588px;
+    background-color: $color-white;
+    padding: 80px 0 100px;
+    .container {
+        padding: 0 215px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__pets {
+        width: 300px;
+        height: 408px;
+        overflow: hidden;
+        img {
+            width: 300px;
+        }
+    }
+    &__wrapper {
+        width: 430px;
+        height: 380px;
+    }
+    &__subheading {
+        margin-top: 25px;
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+        color: $color-dark-xl;
+    }
+}
