@@ -5,9 +5,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(41, 41, 41, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include alignment_center;
 }
 
 .modal {
@@ -28,9 +26,7 @@
         width: 52px;
         height: 52px;
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include alignment_center;
         position: absolute;
         right: -52px;
         top: -52px;

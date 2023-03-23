@@ -69,9 +69,7 @@ a {
     }
     &_round {
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include alignment_center;
         width: 52px;
         height: 52px;
     }

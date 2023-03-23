@@ -21,3 +21,8 @@ $color-black: #000000;
     font-weight: 400;
 }
 
+@mixin alignment_center {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

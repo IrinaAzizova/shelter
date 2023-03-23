@@ -6,9 +6,7 @@
         padding-top: 60px;
         max-width: 1200px;
         margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include alignment_center;
         .slider {
             &__wrapper {
                 width: 990px;
@@ -17,9 +15,7 @@
                 justify-content: space-between;
             }
             &__arrow {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include alignment_center;
                 width: 52px;
                 height: 52px;
                 padding: 0;
