@@ -27,6 +27,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -66,6 +67,7 @@ a {
     &_pets {
         display: block;
         margin: 60px auto 0;
+        width: 266px;
     }
     &_round {
         padding: 0;

@@ -43,6 +43,10 @@
             }
             &_active {
                 border-bottom: solid 3px $color-primary;
+                &:hover {
+                    color: $color-dark-s;
+                    cursor: default;
+                }
             }
         }
     }

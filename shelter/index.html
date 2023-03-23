@@ -35,7 +35,7 @@
 
 <body>
 
-    <!-- __________Start Screen__________ -->
+    <!-- __________Start Screen (Not only)__________ -->
     <section class="start-screen">
         <div class="container">
 
@@ -49,8 +49,8 @@
                         <ul>
                             <li class="nav__item"><a class="nav__link nav__link_active" href="#">About the shelter</a></li>
                             <li class="nav__item"><a class="nav__link" href="our-pets.html">Our pets</a></li>
-                            <li class="nav__item"><a class="nav__link" href="#">Help the shelter</a></li>
-                            <li class="nav__item"><a class="nav__link" href="#">Contacts</a></li>
+                            <li class="nav__item"><a class="nav__link" href="#help">Help the shelter</a></li>
+                            <li class="nav__item"><a class="nav__link" href="#contacts">Contacts</a></li>
                         </ul>
                     </nav>   
             </header>
@@ -59,7 +59,7 @@
                 <div class="start-screen__content">
                     <h1 class="start-screen__heading">Not only people <br> need a house</h1>
                     <p class="start-screen__subheading">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
-                    <button class="btn btn_primary">Make a friend</button>
+                    <a href="#pets" class="btn btn_primary">Make a friend</a>
                 </div>
             </div>
         </div>    
@@ -83,8 +83,8 @@
         </div>
     </section>
 
-    <!-- __________Pets__________ -->
-    <section class="pets">
+    <!-- __________Pets (Our friends)__________ -->
+    <section class="pets" id="pets">
         <div class="container">
             <h2 class="heading heading_tac">
                 Our friends who <br> are looking for a house
@@ -121,7 +121,7 @@
                     </svg>
                 </button>
             </div>
-            <button class="btn btn_primary btn_pets">Get to know the rest</button>
+            <a href="our-pets.html" class="btn btn_primary btn_pets">Get to know the rest</a>
         </div>
     </section>
 
@@ -174,8 +174,8 @@
         </div>
     </section>
 
-    <!-- __________Donation__________ -->
-    <section class="donation">
+    <!-- __________Donation (In addition)__________ -->
+    <section class="donation" id="help">
         <div class="container">
             <div class="donation__img">
                 <img src="assets/img/donation-dog.png" alt="dog">
@@ -183,10 +183,10 @@
             <div class="donation__wrapper">
                 <h2 class="heading">You can also <br> make a donation</h2>
                 <p class="donation__subheading">Name of the bank / Type of bank account</p>
-                <div class="donation__card">
+                <a href="#help" class="donation__card">
                     <img src="assets/img/credit-card.svg" alt="card icon">
                     <p class="donation__card-number">8380 2880 8028 8791 7435</p>
-                </div>
+                </a>
                 <p class="donation__descr">
                     Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.
                 </p>
@@ -197,7 +197,7 @@
     <!-- __________Footer__________ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__contacts">
+            <div class="footer__contacts" id="contacts">
                 <h2 class="heading">For questions and suggestions</h2>
                 <div class="footer__item">
                     <a href="mailto:email@shelter.com"><span class="icon-mail"></span> email@shelter.com</a>
@@ -208,14 +208,14 @@
             </div>
             <div class="footer__locations">
                 <h2 class="heading">We are waiting for your visit</h2>
-                <div class="footer__item">
+                <a href="https://www.google.com/maps/search/1+Central+Street,+Boston/@42.3374039,-71.1106835,12z/data=!3m1!4b1" target="_blank" class="footer__item">
                     <span class="icon-pin"></span>
                     <address class="footer__address">1 Central Street, Boston (entrance from the store)</address>
-                </div>
-                <div class="footer__item">
+                </a>
+                <a href="https://www.google.com/maps/search/+18+South+Park,+London/@51.466769,-0.2429399,11z/data=!3m1!4b1" target="_blank" class="footer__item">
                     <span class="icon-pin"></span>
                     <address class="footer__address"> 18 South Park, London</address>
-                </div>
+                </a>
                 
             </div>
             <div class="footer__img">
