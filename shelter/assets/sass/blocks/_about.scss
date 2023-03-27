@@ -19,13 +19,16 @@
         width: 430px;
         height: 380px;
     }
+    .heading {
+        margin-top: 16px;
+    }
     &__subheading {
         margin-top: 25px;
         font-family: 'Arial';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
-        line-height: 160%;
+        line-height: 140%;
         color: $color-dark-xl;
     }
 }

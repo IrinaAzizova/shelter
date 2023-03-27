@@ -1,7 +1,7 @@
 .footer {
-    min-height: 350px;
+    height: 349px;
     background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
-    padding: 56px 0 60px;
+    padding-top: 56px;
     .container {
         padding: 0 40px;
         display: flex;
@@ -30,8 +30,6 @@
         width: 300px;
         img {
             width: 300px;
-            position: relative;
-            top:64px;
         }
     }
     &__item {
