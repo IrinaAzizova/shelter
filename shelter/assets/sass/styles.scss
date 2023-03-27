@@ -51,7 +51,8 @@ a {
     border: none;
     transition: all 0.5s;
     &:hover {
-        background-color: $color-primary-light;
+        background-color: $color-primary-light;        
+        color: $color-dark-3xl;
     }
     &_primary {
         background: $color-primary;
