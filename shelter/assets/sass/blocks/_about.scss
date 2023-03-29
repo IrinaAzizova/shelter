@@ -16,8 +16,8 @@
         }
     }
     &__wrapper {
-        width: 430px;
-        height: 380px;
+        width: 429px;
+        min-height: 380px;
     }
     .heading {
         margin-top: 16px;
@@ -27,8 +27,8 @@
         font-family: 'Arial';
         font-style: normal;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 140%;
+        font-size: 15px;
+        line-height: 160%;
         color: $color-dark-xl;
     }
 }

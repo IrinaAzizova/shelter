@@ -29,16 +29,16 @@
   position:relative;
   content: "\e900";
   color: #f1cdb3;
-  font-size: 1.2em;
-  margin-right: 20px;
+  font-size: 1.6em;
+  margin-right: 14px;
   top: 2px
 }
 .icon-phone:before {
   content: "\e901";
   color: #f1cdb3;
   position:relative;
-  font-size: 1.2em;
-  margin-right: 20px;
+  font-size: 1.6em;
+  margin-right: 14px;
   top: 3px
 }
 .icon-pin:before {

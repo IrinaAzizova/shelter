@@ -4,8 +4,14 @@
     background: $color-light-s;
     border-radius: 9px;
     text-align: center;
+    &__btn {
+        width: 187px;
+        font-size: 17px;
+        letter-spacing: 0.06em;
+    }
     &:hover {
         background-color: $color-white;
+        cursor: pointer;
         .btn_secondary {
             background-color: $color-primary-light;
         }
@@ -15,7 +21,7 @@
         border-radius: 9px 9px 0 0;      
     }
     &__title {
-        margin: 30px auto;
+        margin: 27px auto;
         @include georgia_400;
         font-size: 20px;
         line-height: 23px;
