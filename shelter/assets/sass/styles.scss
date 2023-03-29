@@ -84,7 +84,8 @@ a {
         border: 2px solid $color-dark-s;
         &:hover {
             background-color: transparent;
-            cursor: default;
+            color: $color-dark-s;
+            cursor: auto;
         }
     }
 }
