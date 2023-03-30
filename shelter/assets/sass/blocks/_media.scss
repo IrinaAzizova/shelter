@@ -1,4 +1,27 @@
+@media (max-width: 1280px) {
+    .container {
+        width: 990px;
+    }
+
+    .header {
+        width: auto;
+        min-width: 708px;
+        max-width: 980px;        
+        padding-left: 0;
+        margin: 0 auto;
+        .nav {
+            width: none;
+            min-width: 443px;
+            ul {
+                position: static;
+            }
+        }
+    }
+}
+
+
 @media (max-width: 992px) {
+
     .btn {
         &:hover {
             background-color: $color-primary;
