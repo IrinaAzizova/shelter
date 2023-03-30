@@ -29,65 +29,7 @@
     .container {
         max-width: 92%;
     }
-
-    .start-screen {
-        &__wrapper {
-            margin: 0;
-            min-height: 1165px;
-            padding-top: 30px;
-            background: url(../img/start-screen-puppy.png) no-repeat right bottom / 80%;
-        }
-        &__content {
-            margin: 0 auto;
-            width: 65%;
-            .btn {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-    }
-}
-
-
-/* @media (max-width: 1280px) {
-    .container {
-        max-width: 960px;
-    }
-
-    .header {
-        width: 100%;
-        min-width: 708px;
-        max-width: 960px;        
-        padding-left: 0;
-        margin: 0 auto;
-        .nav {
-            width: none;
-            min-width: 443px;
-            ul {
-                position: static;
-            }
-        }
-    }
-
-    .start-screen {
-        min-height: 700px;
-        &__wrapper {            
-            width: 100%;     
-            margin-top: 0;    
-            padding-top:170px;
-            background: url(../img/start-screen-puppy.png) no-repeat 420px bottom / 569px;
-        }
-        &__subheading {
-            font-size: 15px;
-        }
-    }
-}
-
-
-@media (max-width: 992px) {
-    .container {
-        max-width: 708px;
-    }
+    
     .btn {
         &:hover {
             background-color: $color-primary;
@@ -100,6 +42,105 @@
         }
     }
 
+    .start-screen {
+        min-height: 1165px;
+        &__wrapper {
+            min-height: 1075px;
+            margin: 0;
+            padding-top: 30px;
+            background: url(../img/start-screen-puppy.png) no-repeat right bottom / 80%;
+        }
+        &__content {
+            margin: 0 auto;
+            width: 65%;
+            .btn {
+                display: block;
+                margin: 0 auto;
+                width: 212px;
+            }
+        }
+        &__subheading {
+            font-size: 15px;
+            margin: 42px 0;
+        }
+    }
+}
+
+
+
+@media (max-width: 760px) {
+    .header {
+        align-items: center;
+        .nav {
+            @include alignment_center;
+            position: fixed;
+            top: 0;
+            right: 0;          
+            height: 100vh;
+            transform: translateX(100%);
+            background-color: $color-dark-3xl;
+            min-width: 320px;
+            ul {
+                flex-direction: column;
+                width: 243px;
+                height: 327px;
+                text-align: center;
+            }
+            &__link {
+                font-size: 32px;
+            }                   
+            &_active {
+                display: flex;
+                transform: translateX(0);
+                width: 320px;
+            }
+        }
+        .burger-menu {
+            display: flex;
+            z-index: 2;
+        }
+    }
+
+    .start-screen {
+        min-height: 1000px;
+        &__wrapper {
+            min-height: 910px;
+        }
+        &__content {
+            text-align: center;
+            width: 80%
+        }
+        &__heading {
+            font-size: 35px;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .header {
+        padding: 0 9px;
+    }
+
+    .start-screen {
+        min-height: 823px;
+        &__wrapper {
+            min-height: 733px;
+            background: url(../img/start-screen-puppy.png) no-repeat right bottom/89%;
+        }
+        &__content {
+            width: 100%;
+        }
+        &__heading {
+            font-size: 25px;
+            margin-top: 30px;
+            letter-spacing: 0.06em;
+        }
+    }
+}
+
+
+/* @media (max-width: 992px) {
+    
     .header {
         &_white {
             a {
@@ -114,27 +155,6 @@
                     }
                 }
             }
-        }
-    }
-
-    .start-screen {
-        min-height: 1165px;
-        &__wrapper {
-            padding-top: 30px;
-            min-height: 1075px;
-            background: url(../img/start-screen-puppy.png) no-repeat 139px bottom / 569px;
-        }
-        &__content {
-            margin: 0 auto;
-        }
-        &__subheading {
-            margin: 42px 0 44px;
-        }
-        .btn {
-            display: block;
-            width: 400px;
-            margin: 0 auto;
-            width: 211px;
         }
     }
            
