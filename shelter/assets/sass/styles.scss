@@ -54,6 +54,7 @@ a {
     border: none;
     transition: all 0.5s;
     @include alignment_center;
+    text-align: center;
     &:hover {
         background-color: $color-primary-light;        
         color: $color-dark-3xl;
