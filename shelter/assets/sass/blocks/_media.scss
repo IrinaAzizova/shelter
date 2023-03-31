@@ -21,6 +21,18 @@
             width: 43%;
         }
     }
+
+    .pets {
+        .slider__wrapper {
+            width: 70%;
+            justify-content: space-around;
+        }
+        .pet-card {
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+    }
 }
 
 
@@ -78,11 +90,29 @@
             width: 39%;
         }
     }
+
+    .pets {
+        .slider__wrapper {
+            justify-content: space-between;
+            width: 82.5%;
+        }
+    }
 }
 
 
 
 @media (max-width: 760px) {
+    .btn {
+        &_secondary {            
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+    .btn_pets {
+        margin-top: 42px;
+    }
+
     .header {
         align-items: center;
         .nav {
@@ -134,7 +164,47 @@
             width: 55%;
         }
     }
+
+    .pets {
+        padding: 80px 0 0;
+        min-height: 850px;
+        &__slider {
+            padding-top: 40px;
+            flex-wrap: wrap;        
+            .slider {
+                &__arrow_prev {
+                    order: 1;
+                    margin: 20px 40px 0 0;
+
+                }
+                &__arrow_next {
+                    order: 1;
+                    margin: 20px 0 0 40px;
+                }
+                &__wrapper {
+                    justify-content: space-around;
+                    width: 100%;
+                    .pet-card {
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pet-card {
+        &:hover {
+            background-color: $color-light-s;
+            .btn_secondary {
+                background-color: transparent;
+            }
+        }
+    }
 }
+
+
 
 @media (max-width: 540px) {
     .heading {
@@ -162,7 +232,7 @@
     }
 
     .about {
-        padding: 25px 0 100px;
+        padding: 25px 0 0px;
         &__wrapper {
             width: 85%;
         }
@@ -172,7 +242,13 @@
         &__pets {
             width: 81%;
             margin-top: 37px;
+            height: 350px;
         }
+    }
+
+    .pets {
+        padding: 42px 0 0;
+        min-height: 790px;
     }
 }
 
@@ -196,19 +272,7 @@
         }
     }
            
-    .pet-card {
-        max-width: 270px;
-        min-height: 435px;
-        background: $color-light-s;
-        border-radius: 9px;
-        text-align: center;
-        &:hover {
-            background-color: $color-white;
-            .btn_secondary {
-                background-color: $color-primary-light;
-            }
-        }
-    }
+    
 
     .modal-window {        
         &:hover {

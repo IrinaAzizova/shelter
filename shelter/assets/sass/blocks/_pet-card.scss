@@ -5,9 +5,10 @@
     border-radius: 9px;
     text-align: center;
     &__btn {
-        width: 187px;
+        width: 70%;
         font-size: 17px;
         letter-spacing: 0.06em;
+        margin: 0 auto;
     }
     &:hover {
         background-color: $color-white;
@@ -17,7 +18,7 @@
         }
     }
     &__img {
-        width: 270px;
+        width: 100%;
         border-radius: 9px 9px 0 0;      
     }
     &__title {
