@@ -21,9 +21,10 @@
     }
     &__subheading {
         @include arial_400;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 160%;
         color: $color-dark-s;
-        margin: 42px 0 62px;
+        margin: 42px 0;
     }
+    
 }
