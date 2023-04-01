@@ -3,20 +3,20 @@
     background: $color-light-l;
     padding: 80px 0 100px;
     .container {
-        width: 71.5%;;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items:center;
     }
     &__img {
-        width: 55%;
+        width: 39.5%;
         img {
             width: 100%;
         }
     }
     &__wrapper {
-        width: 41.5%;
+        width: 29%;
         min-height: 282px;
+        margin-left: 30px;
     }
     &__subheading {
         @include georgia_400;
