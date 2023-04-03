@@ -47,3 +47,9 @@
   margin-right: 20px;
   font-size: 1.55em;
 }
+
+@media (max-width: 540px) {
+  .icon-pin:before {
+    margin-right: 15px;
+  }
+}

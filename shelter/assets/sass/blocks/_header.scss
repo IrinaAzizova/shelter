@@ -26,6 +26,7 @@
         min-width: 443px;
         display: flex;
         align-items: center;
+        transition: all 0.5s;
         ul {
             width: 100%;
             list-style-type: none;
@@ -52,6 +53,26 @@
                     cursor: default;
                 }
             }
+        } 
+    }
+    .burger-menu {
+        display: none;
+        width: 30px;
+        height: 22px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.5s;
+        &__line {
+            width: 30px;
+            height: 2px;
+            background-color: $color-primary;
+            &_active {
+                background-color: $color-primary;
+            }
+        }
+        &_active {
+            transform: rotate(90deg);
         }
     }
     &_white {
@@ -73,6 +94,14 @@
                 color: $color-dark-l;
                 &:hover {
                     color: $color-dark-3xl;
+                }
+            }
+        }
+        .burger-menu {
+            &__line {
+                background-color: #000000;
+                &_active {
+                    background-color: $color-primary;
                 }
             }
         }

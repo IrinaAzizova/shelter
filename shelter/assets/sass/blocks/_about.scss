@@ -3,7 +3,7 @@
     background-color: $color-white;
     padding: 80px 0 100px;
     .container {
-        padding: 0 215px;
+        max-width: 849px;
         display: flex;
         justify-content: space-between;
     }
@@ -12,7 +12,7 @@
         height: 408px;
         overflow: hidden;
         img {
-            width: 300px;
+            max-width: 100%;
         }
     }
     &__wrapper {

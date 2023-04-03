@@ -9,7 +9,6 @@
 @import "blocks/footer";
 @import "blocks/modal-window";
 @import "blocks/pets-galery";
-@import "blocks/media";
 
 /* @font-face {
     font-family: 'Georgia';
@@ -30,6 +29,10 @@
     scroll-behavior: smooth;
 }
 
+body {
+    overflow: visible;
+}
+
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -47,9 +50,12 @@ a {
     border-radius: 100px;
     cursor: pointer;
     outline: none;
-    padding: 15px 45px;
+    padding: 15px 0;
+    width: 207px;
     border: none;
     transition: all 0.5s;
+    @include alignment_center;
+    text-align: center;
     &:hover {
         background-color: $color-primary-light;        
         color: $color-dark-3xl;
@@ -57,7 +63,7 @@ a {
     &_primary {
         background: $color-primary;
         @include georgia_400;
-        font-size: 17px;
+        font-size: 18px;
         letter-spacing: 0.06em;
         color: $color-dark-3xl;
     }
@@ -67,8 +73,14 @@ a {
     }
     &_pets {
         display: block;
+        padding: 0;
         margin: 60px auto 0;
-        width: 266px;
+        width: 260px;
+        height: 50px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        letter-spacing: 0.01em;
     }
     &_round {
         padding: 0;
@@ -100,3 +112,6 @@ a {
         text-align: center;
     }
 }
+
+
+@import "blocks/media";

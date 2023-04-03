@@ -7,7 +7,7 @@
         padding-top: 136px;
         width: 1200px;
         min-height: 728px;
-        background: url(../img/start-screen-puppy.png) no-repeat right bottom / 698px;
+        background: url(../img/start-screen-puppy.png) no-repeat right bottom / 58%;
     }
     &__content {
         width: 460px;
@@ -21,9 +21,10 @@
     }
     &__subheading {
         @include arial_400;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 160%;
         color: $color-dark-s;
-        margin: 42px 0 62px;
+        margin: 42px 0;
     }
+    
 }
