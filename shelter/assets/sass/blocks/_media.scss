@@ -140,6 +140,12 @@
         }
     }
 
+    .pet-card {
+        &__btn {
+            width: 187px;
+        }
+    }
+
     .help {
         &__list {
             width: 100%;
@@ -320,6 +326,10 @@
         }
         &__locations {
             margin-top: 40px;
+            .heading {
+                width: 80%;
+                margin: 0 auto;
+            }
         }
     }
 }
