@@ -5,16 +5,19 @@
     background: $color-light-l;
     padding: 56px 0 100px;
     .container {
-        padding: 0 40px;
+        padding: 0 35px;
     }
     &__wrapper {
         margin: 60px auto 0;
         display: grid;
         grid-template: repeat(2, 435px) / repeat(4, 270px);
-        row-gap: 30px;
+        row-gap: 35px;
         justify-content: space-between;
         .pet-card {
             width: 100%;
+            .btn {
+                width: 187px;
+            }
         }
     }
     &__navigation {
