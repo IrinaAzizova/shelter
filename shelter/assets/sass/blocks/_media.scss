@@ -58,6 +58,16 @@
             margin: 65px auto 0;
         }
     }
+
+    .pets-galery {
+        .container {
+            padding: 0 20px;
+        }
+        &__wrapper {
+            grid-template: repeat(3, 435px) / repeat(3, 270px);
+            justify-content: space-around;
+        }
+    }
 }
 
 
@@ -76,6 +86,13 @@
     a {
         &:hover {
             color: $color-primary;
+        }
+    }
+
+    .header {
+        &_white {
+            margin: 30px 0;
+            padding: 0;
         }
     }
 
@@ -151,6 +168,29 @@
             right: 13px
         }
     }
+
+    .pets-galery {
+        padding-bottom: 75px;
+        .container {
+            padding: 0;
+            width: 80%;
+        }
+        &__wrapper {
+            margin: 28px auto 0;
+            grid-template-columns: repeat(2, 270px);
+            .pet-card {
+                &:nth-child(7) {
+                    display: none;
+                }
+                &:nth-child(8) {
+                    display: none;
+                }
+            }
+        }
+        &__navigation {
+            padding-top: 40px;
+        }
+    }
 }
 
 
@@ -196,6 +236,16 @@
         .burger-menu {
             display: flex;
             z-index: 2;
+        }
+        &_white {
+            .nav {
+                &__link {
+                    color: $color-dark-s;
+                    &_active {
+                        color: $color-white;
+                    }
+                }
+            }
         }
     }
 
@@ -348,7 +398,7 @@
     }
 
     .donation {
-        padding: 40px 0;
+        padding: 40px 0 35px;
         .container {            
             max-width: 100%;
         }
@@ -368,11 +418,13 @@
             }
         }
         &__img {
-            margin: 40px 0 0;
-            width: 85%;
+            margin: 19px 0 0;
+            width: 84.5%;
         }
         &__descr {
             text-align: justify;
+            width: 90%;
+            margin: 20px auto;
         }
     }
 

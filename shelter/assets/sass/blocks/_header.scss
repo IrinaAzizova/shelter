@@ -67,6 +67,9 @@
             width: 30px;
             height: 2px;
             background-color: $color-primary;
+            &_active {
+                background-color: $color-primary;
+            }
         }
         &_active {
             transform: rotate(90deg);
@@ -91,6 +94,14 @@
                 color: $color-dark-l;
                 &:hover {
                     color: $color-dark-3xl;
+                }
+            }
+        }
+        .burger-menu {
+            &__line {
+                background-color: #000000;
+                &_active {
+                    background-color: $color-primary;
                 }
             }
         }
