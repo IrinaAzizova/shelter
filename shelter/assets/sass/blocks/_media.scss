@@ -1,17 +1,4 @@
 @media (max-width: 1279px) {
-    .container {
-        max-width: 90%;
-    }
-
-    .header {
-        width: 100%;
-        padding-left: 0;
-        .nav {
-            ul {
-                left: 0;
-            }
-        }
-    }
 
     .start-screen {
         &__wrapper {
@@ -73,9 +60,6 @@
 
 
 @media (max-width: 992px) {
-    .container {
-        max-width: 92%;
-    }
     
     .btn {
         &:hover {
@@ -90,9 +74,8 @@
     }
 
     .header {
-        &_white {
-            margin: 30px 0;
-            padding: 0;
+        &__wrapper {
+            padding: 0 30px;
         }
     }
 
@@ -101,7 +84,7 @@
         &__wrapper {
             min-height: 1075px;
             margin: 0;
-            padding-top: 30px;
+            padding-top: 0;
             background: url(../img/start-screen-puppy.png) no-repeat right bottom / 80%;
         }
         &__content {
@@ -214,7 +197,9 @@
     }
 
     .header {
-        align-items: center;
+        &__wrapper {
+            align-items: center;
+        }
         .nav {
             @include alignment_center;
             position: fixed;
@@ -229,6 +214,7 @@
                 width: 243px;
                 height: 327px;
                 text-align: center;
+                justify-content: space-between;
             }
             &__link {
                 font-size: 32px;
@@ -341,9 +327,11 @@
         font-size: 25px;
         text-align: center;
     }
-    .header {
-        padding: 0 9px;
 
+    .header {
+        &__wrapper {
+            padding: 0 20px;
+        }
     }
 
     .start-screen {

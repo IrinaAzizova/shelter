@@ -1,9 +1,11 @@
 .header {
-    width: 1200px;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 42px;
+    min-height: 60px;
+    padding: 30px 0;
+    &__wrapper {
+        padding: 0 40px;
+        display: flex;
+        justify-content: space-between;
+    }
     .logo {
         text-align: center;
         &__title {
@@ -11,7 +13,7 @@
             font-size: 32px;
             line-height: 110%;
             letter-spacing: 0.06em;
-            
+            transition: all 0.5s;
         }
         &__subtitle {
             margin-top: 10px;
@@ -20,25 +22,22 @@
             line-height: 15px;
             letter-spacing: 0.1em;
             color: $color-white;
-        }        
+        }
     }
     .nav {
-        min-width: 443px;
-        display: flex;
+        display: flex;        
         align-items: center;
         transition: all 0.5s;
         ul {
-            width: 100%;
-            list-style-type: none;
             display: flex;
-            justify-content: space-between;
-            position: relative;
-            left: 41px
+            column-gap: 35px;
+            list-style-type: none;
+            width: 443px;
         }
         &__link {
             @include arial_400;
             font-size: 15px;
-            line-height: 160%;
+            text-decoration: none;
             color: $color-dark-s;
             transition: all 0.3s;
             display: block;
@@ -53,7 +52,7 @@
                     cursor: default;
                 }
             }
-        } 
+        }
     }
     .burger-menu {
         display: none;
@@ -75,9 +74,8 @@
             transform: rotate(90deg);
         }
     }
+
     &_white {
-        padding: 0 42px 0 0;
-        margin: 30px 40px;
         a {                    
             color: $color-dark-l;
             &:hover {
