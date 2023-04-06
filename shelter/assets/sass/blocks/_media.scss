@@ -26,8 +26,8 @@
     }
 
     .donation {
-        &__wrapper {
-            width: 45%;
+        .container {
+            padding: 0 50px;
         }
     }
 
@@ -132,13 +132,18 @@
     .donation {
         .container {
             flex-direction: column-reverse;
+            align-items: center;
+            padding: 0;
         }
         &__wrapper {
-            width: 64%;
+            width: 51%;
         }
         &__img {
-            width: 71.5%;
-            margin: 60px 40px 0 0px;
+            margin-top: 60px;
+            max-width: 100%;
+            img{
+                width: 100%;
+            }
         }
     }
 
@@ -368,34 +373,30 @@
     }
 
     .donation {
-        padding: 40px 0 35px;
-        .container {            
-            max-width: 100%;
-        }
+        padding: 40px 0;
         &__wrapper {
-            width: 100%;
-            margin-left: 0;
-        }
-        &__subheading {
-            font-size: 14px;
-            text-align: center;
+            width: 90%;
+            margin: 0 auto;
         }
         &__card {
-            width: 281px;
-            margin: 25px auto 0;
+            width: 97%;
+            margin-top: 5px;
             &-number {                
                 font-size: 15px;
             }
         }
-        &__img {
-            margin: 19px 0 0;
-            width: 84.5%;
+        &__subheading {
+            font-size: 14px;
+            text-align: justify;
         }
-        &__descr {
+        &__img {
+            margin-top: 42px;
+            width: 82%;
+        }
+        /* &__descr {
             text-align: justify;
             width: 90%;
-            margin: 20px auto;
-        }
+        } */
     }
 
     .footer {
