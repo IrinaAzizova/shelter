@@ -1,14 +1,14 @@
 .footer {
-    min-height: 349px;
-    background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
-    padding-top: 56px;
+    background: url(../img/bg_start-screen.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    padding-top: 40px;
     .container {
         padding: 0 40px;
         display: flex;
         justify-content: space-between;
+        column-gap: 155px;
         flex-wrap: wrap;
     }
-    .heading {
+   .heading {
         color: $color-white;
         font-size: 35px;
         line-height: 130%;
@@ -17,13 +17,14 @@
     &__contacts, &__locations {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 234px;
-        width: 302px;
+        row-gap: 33px;
+        margin-top: 16px;
+    }
+    &__contacts {
+        width: 282px;
     }
     &__locations {
-        margin-right: 26px;
-        width: 303px;
+        width: 302px;
         .footer__item {
             display: flex;
             align-items: center;
@@ -31,8 +32,6 @@
     }
     &__img {
         width: 300px;
-        position: relative;
-        bottom: 20px;
         img {
             width: 100%;
         }
@@ -45,10 +44,6 @@
         color: white;
     }
     &__address {
-        @include georgia_400;
-        font-size: 20px;
-        line-height: 115%;
-        letter-spacing: 0.06em;
         color: $color-primary;
     }
 }
