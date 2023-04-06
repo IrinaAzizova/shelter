@@ -7,6 +7,12 @@
         }
     }
 
+    .about {
+        .container {
+            padding: 0 165px;
+        }
+    }
+
     .pets {
         .slider__wrapper {
             width: 70%;
@@ -98,16 +104,16 @@
     }
 
     .about {
-        min-height: 974px;
-        padding: 66px 0 100px;
         .container {
             flex-direction: column;
-            align-items: center;
         }
         &__pets {
             order: 1;
+            width: 69%;
             margin-top: 80px;
-            width: 39%;
+        }
+        &__wrapper {
+            width: 98%;
         }
     }
 
@@ -237,8 +243,12 @@
     }
 
     .about {
-        &__pets {
-            width: 55%;
+        text-align: center;
+        .container {
+            padding: 0 75px;
+        }
+        &__subheading {
+            text-align: justify;
         }
     }
 
@@ -331,25 +341,17 @@
         }
     }
 
-    /* .start-screen {
-       
-    } */
-
     .about {
-        padding: 25px 0 0px;
-        &__wrapper {
-            width: 85%;
-        }
-        &__subheading {
-        text-align: justify;
+        padding: 42px 0;
+        .container {
+            padding: 0 25px;
         }
         &__pets {
-            width: 81%;
-            margin-top: 37px;
-            height: 350px;
+            margin-top: 42px;
+            width: 95%;
         }
     }
-
+    
     .pets {
         padding: 42px 0 0;
         min-height: 790px;

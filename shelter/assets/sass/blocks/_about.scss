@@ -1,32 +1,30 @@
 .about {
-    min-height: 588px;
     background-color: $color-white;
     padding: 80px 0 100px;
     .container {
-        max-width: 849px;
+        padding: 0 215px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     &__pets {
-        width: 300px;
-        height: 408px;
-        overflow: hidden;
+        width: 35%;
         img {
+            display: block;
             max-width: 100%;
+            max-height: 100%;
+            margin: 0 auto;
         }
     }
     &__wrapper {
-        width: 429px;
-        min-height: 380px;
-    }
-    .heading {
-        margin-top: 16px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 25px;         
     }
     &__subheading {
-        margin-top: 25px;
-        font-family: 'Arial';
-        font-style: normal;
-        font-weight: 400;
+        @include arial_400;
         font-size: 15px;
         line-height: 160%;
         color: $color-dark-xl;
