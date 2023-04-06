@@ -1,26 +1,4 @@
-@import "blocks/variables_mixins_fonts";
-@import "blocks/header";
-@import "blocks/start-screen";
-@import "blocks/about";
-@import "blocks/pets";
-@import "blocks/pet-card";
-@import "blocks/help";
-@import "blocks/donation";
-@import "blocks/footer";
-@import "blocks/modal-window";
-@import "blocks/pets-galery";
-
-/* @font-face {
-    font-family: 'Georgia';
-    src: url('../fonts/georgia.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Arial';
-    src: url('../fonts/ArialMdm.ttf') format('truetype');
-    font-display: swap;
-} */
+@import "blocks/variables_mixins_fonts"; 
 
 * {
     box-sizing: border-box;
@@ -43,6 +21,17 @@ a {
     color: $color-primary;
     &:hover {
         color: $color-primary-light;
+    }
+}
+
+.heading {
+    @include georgia_400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+    &_tac {
+        text-align: center;
     }
 }
 
@@ -102,16 +91,15 @@ a {
     }
 }
 
-.heading {
-    @include georgia_400;
-    font-size: 35px;
-    line-height: 130%;
-    letter-spacing: 0.06em;
-    color: $color-dark-l;
-    &_tac {
-        text-align: center;
-    }
-}
 
-
+@import "blocks/header";
+@import "blocks/start-screen";
+@import "blocks/about";
+@import "blocks/pets";
+@import "blocks/pet-card";
+@import "blocks/help";
+@import "blocks/donation";
+@import "blocks/footer";
+@import "blocks/modal-window";
+@import "blocks/pets-galery";
 @import "blocks/media";

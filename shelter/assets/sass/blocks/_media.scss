@@ -118,15 +118,12 @@
     }
 
     .pets {
+        .container {
+            padding: 0 30px;
+        }
         .slider__wrapper {
             justify-content: space-between;
-            width: 82.5%;
-        }
-    }
-
-    .pet-card {
-        &__btn {
-            width: 187px;
+            width: 82%;
         }
     }
 
@@ -254,7 +251,6 @@
 
     .pets {
         padding: 80px 0 0;
-        min-height: 850px;
         &__slider {
             padding-top: 40px;
             flex-wrap: wrap;        
@@ -351,10 +347,12 @@
             width: 95%;
         }
     }
-    
+
     .pets {
-        padding: 42px 0 0;
-        min-height: 790px;
+        padding: 42px 0;
+        .container {
+            padding: 0 13px;
+        }
     }
 
     .help {

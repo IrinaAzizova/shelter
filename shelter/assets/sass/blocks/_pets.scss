@@ -1,7 +1,9 @@
 .pets {
-    min-height: 877px;
     background: $color-light-l;
     padding: 80px 0 100px;
+    .container {
+        padding: 0 40px;
+    }
     &__slider {
         padding-top: 60px;
         max-width: 1200px;
