@@ -2,85 +2,52 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const burgerBtn = document.querySelector('.burger-menu'),
-          burgerLines = burgerBtn.querySelectorAll('.burger-menu__line'),
-          navMenu = document.querySelector('.nav'),
-          navlinks = navMenu.querySelectorAll('.nav__link');
+	const burgerBtn = document.querySelector('.burger-menu'),
+		burgerLines = burgerBtn.querySelectorAll('.burger-menu__line'),
+		navMenu = document.querySelector('.nav'),
+		navlinks = navMenu.querySelectorAll('.nav__link'),
+		overlay = document.querySelector('.overlay');
 
-    burgerBtn.addEventListener('click', () => {
-            burgerBtn.classList.toggle('burger-menu_active');
-            navMenu.classList.toggle('nav_active');
-            burgerLines.forEach(line => {
-                line.classList.toggle('burger-menu__line_active')
-            });
+	const toOpenBurgerMenu = (burgerBtnSelector, navMenuSelector, burgerLinesSelector, overlaySelector) => {
+		document.body.style.overflow = document.body.style.overflow == "hidden" ? "visible" : "hidden";
+		overlaySelector.style.display = overlaySelector.style.display == 'block' ? 'none' : 'block';
+		burgerBtnSelector.classList.toggle('burger-menu_active');
+		navMenuSelector.classList.toggle('nav_active');
+		burgerLinesSelector.forEach(line => {
+				line.classList.toggle('burger-menu__line_active');
+		});
+	};
+
+	const toCloseBurgerMenu = (burgerBtnSelector, navMenuSelector, burgerLinesSelector, overlaySelector) => {
+		document.body.style.overflow = "visible";
+		overlaySelector.style.display = 'none';
+		navMenuSelector.classList.remove('nav_active');
+		burgerBtnSelector.classList.remove('burger-menu_active');
+		burgerLinesSelector.forEach(line => {
+			line.classList.remove('burger-menu__line_active');
+		});
+	}
+	
+	burgerBtn.addEventListener('click', () => {
+		toOpenBurgerMenu(burgerBtn, navMenu, burgerLines, overlay);
+	});
+
+	navlinks.forEach(eachLink => {
+		eachLink.addEventListener('click', () => {
+			toCloseBurgerMenu(burgerBtn, navMenu, burgerLines, overlay);
+		});
+	});
+
+	window.addEventListener('keydown', (event) => {
+        if (event.key == 'Escape' && burgerBtn.classList.contains('burger-menu_active')) {
+            toCloseBurgerMenu(burgerBtn, navMenu, burgerLines, overlay);
+        };
     });
 
-    navlinks.forEach(eachLink => {
-        eachLink.addEventListener('click', () => {
-            navMenu.classList.remove('nav_active');
-            burgerBtn.classList.remove('burger-menu_active');
-        });
-    })
+	overlay.addEventListener('click', (event) => {
+		if (event.target && event.target.classList.contains('overlay')) {
+			toCloseBurgerMenu(burgerBtn, navMenu, burgerLines, overlay);
+		}
+		
+	});
 });
-
-
-
-
-console.log(`
-1. Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14
-  - блок <header>: +2
-  - блок Not only: +2
-  - блок About: +2
-  - блок Our Friends: +2
-  - блок Help: +2
-  - блок In addition: +2
-  - блок <footer>: +2
-
-2. Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14
-  - блок <header>: +2
-  - блок Not only: +2
-  - блок About: +2
-  - блок Our Friends: +2
-  - блок Help: +2
-  - блок In addition: +2
-  - блок <footer>: +2
-
-3. Вёрстка страницы Main соответствует макету при ширине экрана 320px: +14
-  - блок <header>: +2
-  - блок Not only: +2
-  - блок About: +2
-  - блок Our Friends: +2
-  - блок Help: +2
-  - блок In addition: +2
-  - блок <footer>: +2
-
-4. Вёрстка страницы Pets соответствует макету при ширине экрана 1280px: +6
-
-  - блок <header>: +2
-  - блок Our Friends: +2
-  - блок <footer>: +2
-
-5. Вёрстка страницы Pets соответствует макету при ширине экрана 768px: +6
-  - блок <header>: +2
-  - блок Our Friends: +2
-  - блок <footer>: +2
-
-6. Вёрстка страницы Pets соответствует макету при ширине экрана 320px: +6
-  - блок <header>: +2
-  - блок Our Friends: +2
-  - блок <footer>: +2
-7. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20
-  - нет полосы прокрутки при ширине страницы Main от 1280рх до 768рх: +5
-  - нет полосы прокрутки при ширине страницы Main от 768рх до 320рх: +5
-  - нет полосы прокрутки при ширине страницы Pets от 1280рх до 768рх: +5
-  - нет полосы прокрутки при ширине страницы Pets от 768рх до 320рх: +5
-
-8. Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (Примеры неправильной и правильной реализации): +8
-  - на странице Main: +4
-  - на странице Pets: +4
-
-9. При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4
-Открытие меню при клике на иконку бургер-меню на текущем этапе не проверяется
-
-10. Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ : +8
-`);
