@@ -181,6 +181,26 @@
             padding-top: 40px;
         }
     }
+
+    .modal {
+        &-window {
+            max-width: 630px;
+            min-height: 350px;
+            column-gap: 10px;
+        }
+        &__content {
+            margin: 10px 9px 0 0;
+            max-width: 260px;
+        }
+        &__descr {
+            margin: 20px 0 18px;
+            font-size: 13px;
+            line-height: 110%;
+        }
+        &__item {
+            margin-top: 7px;
+        }
+    }
 }
 
 
@@ -291,10 +311,36 @@
     .footer {
         &__locations {
             margin-top: 40px;
-           /*  .heading {
-                width: 80%;
-                margin: 0 auto;
-            } */
+        }
+    }
+
+    .modal {
+        &-window {
+            padding: 10px;
+            max-width: 240px;
+            min-height: 340px;
+        }
+        &__content {
+            margin: 0;
+        }
+        &__close {
+            right: -31px;
+        }
+        &__img {
+            display: none;
+        }
+        &__name {
+            text-align: center;
+            font-size: 35px;
+        }
+        &__breed {
+            text-align: center;
+        }
+        &__descr {            
+            text-align: justify;
+        }
+        &__list {
+            margin-top: 24px;
         }
     }
 }
