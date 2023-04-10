@@ -321,6 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	/*----------pagination-slides----------*/
 
 	
+	/*----------Window-resize-listener----------*/
+	window.addEventListener('resize', function(){
+        this.clearTimeout(doneResizing);
+        doneResizing = this.setTimeout(function(){
+            toListenerResize();
+			toChangePaginationData();
+			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
+        }, 500);
+    });	
 
 	
 
@@ -342,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		`;
 		galeryContainer?.append(card);
 	}
+	toCreateGaleryCard(objOfPetsData[1]);
 
 	const toCreateRandArr = (min, max) => {
 		let arr = [];
@@ -364,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	console.log(arrOfPetsPages);
 
+	
 	const toCreateGaleryPage = (arr) => {
 		if (galeryContainer) {
 			galeryContainer.innerHTML = '';
@@ -376,20 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	console.log(objOfPetsData);
 	
 
-
-	/*----------Window-resize-listener----------*/
-	window.addEventListener('resize', function(){
-        this.clearTimeout(doneResizing);
-        doneResizing = this.setTimeout(function(){
-            toListenerResize();
-			toChangePaginationData();
-			toCreateRandArr();
-			toCreateGaleryPage(arrOfPetsPages[0]);
-			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
-        }, 500);
-    });	
-
-	
 
 	const toCheckCurrentPage = (num) => {
 		if (num  == totalPagPages) {
