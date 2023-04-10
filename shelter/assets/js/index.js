@@ -190,22 +190,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	} */
 	const toCreateSlide = (animateClass) => {
-		slidesContainer.innerHTML = '';
-		toCalculateCardsIndex().forEach( item => {
-			toCreateCard(petsCatalogue[item], animateClass);
-		});
+		if (slidesContainer) {
+			slidesContainer.innerHTML = '';
+			toCalculateCardsIndex().forEach( item => {
+				toCreateCard(petsCatalogue[item], animateClass);
+			});
+		}
+		
 	}
 	toCreateSlide('animate__slideInRight');
 
-	nextBtn.addEventListener('click', () => {
-		currentSlide = currentSlide == totalStides - 1 ? 0 : currentSlide + 1;
-		toCreateSlide('animate__slideInRight');
-	});
+	if (nextBtn) {
+		nextBtn.addEventListener('click', () => {
+			currentSlide = currentSlide == totalStides - 1 ? 0 : currentSlide + 1;
+			toCreateSlide('animate__slideInRight');
+		});
+	}	
 
-	prevBtn.addEventListener('click', () => {
-		currentSlide = currentSlide == 0 ? totalStides - 1 : currentSlide - 1;
-		toCreateSlide('animate__slideInLeft');
-	}); 
+	if (prevBtn) {
+		prevBtn.addEventListener('click', () => {
+			currentSlide = currentSlide == 0 ? totalStides - 1 : currentSlide - 1;
+			toCreateSlide('animate__slideInLeft');
+		}); 
+	}	
 
 	window.addEventListener('resize', function(){
         this.clearTimeout(doneResizing);
@@ -220,53 +227,64 @@ document.addEventListener('DOMContentLoaded', () => {
 	/*----------Popap----------*/
 
 	const modalOverlay = document.querySelector('.overlay_modal'),
-		  closeBtn = modalOverlay.querySelector('.modal__close');
+		  closeBtn = document.querySelector('.modal__close'),
+		  petsGaleryWrapper = document.querySelector('.pets-galery__wrapper');
 
 	let petName = '',
 		petCard;
 
-	slidesContainer.addEventListener('click', (event) => {
-		if (event.target.matches('.pet-card') || event.target.parentNode.matches('.pet-card')) {
-			petCard = event.target.matches('.pet-card') ? event.target : event.target.parentNode;
-			petName = petCard.querySelector('.pet-card__title').textContent;
-
-			petsCatalogue.forEach( item => {
-				if (item.petName === petName) {
-					modalOverlay.innerHTML = `
-						<div class="modal-window">
-							<button class="btn btn_secondary modal__close" data-modal="close">
-								<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd" d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z" fill="#292929"/>
-									</svg>
-							</button>
-							<img src="${item.img}" alt="${item.petName}" class="modal__img">
-							<div class="modal__content">
-								<p class="modal__name heading">${item.petName}</p>
-								<p class="modal__breed">${item.species}</p>
-								<p class="modal__descr">${item.description}</p>
-								<ul class="modal__list">
-									<li class="modal__item">Age: <span>2 months</span></li>
-									<li class="modal__item">Inoculations: <span>none</span></li>
-									<li class="modal__item">Diseases: <span>none</span></li>
-									<li class="modal__item">Parasites: <span>none</span></li>
-								</ul>
-							</div>
-						</div>
-					`;
-					console.log(item);
+	const toLayoutPetCard = (cardWrapperSelector) => {
+		if (cardWrapperSelector) {
+			cardWrapperSelector.addEventListener('click', (event) => {
+				if (event.target.matches('.pet-card') || event.target.parentNode.matches('.pet-card')) {
+					petCard = event.target.matches('.pet-card') ? event.target : event.target.parentNode;
+					petName = petCard.querySelector('.pet-card__title').textContent;
+		
+					petsCatalogue.forEach( item => {
+						if (item.petName === petName) {
+							modalOverlay.innerHTML = `
+								<div class="modal-window">
+									<button class="btn btn_secondary modal__close" data-modal="close">
+										<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z" fill="#292929"/>
+											</svg>
+									</button>
+									<img src="${item.img}" alt="${item.petName}" class="modal__img">
+									<div class="modal__content">
+										<p class="modal__name heading">${item.petName}</p>
+										<p class="modal__breed">${item.species}</p>
+										<p class="modal__descr">${item.description}</p>
+										<ul class="modal__list">
+											<li class="modal__item">Age: <span>2 months</span></li>
+											<li class="modal__item">Inoculations: <span>none</span></li>
+											<li class="modal__item">Diseases: <span>none</span></li>
+											<li class="modal__item">Parasites: <span>none</span></li>
+										</ul>
+									</div>
+								</div>
+							`;
+							console.log(item);
+						}
+					});
+					console.log(petName);
+		
+					modalOverlay.style.display = 'flex';
+					document.body.style.overflow = "hidden";
 				}
 			});
-			console.log(petName);
-
-			modalOverlay.style.display = 'flex';
-			document.body.style.overflow = "hidden";
 		}
-	});
+	}
+	
+	toLayoutPetCard(slidesContainer);
+	toLayoutPetCard(petsGaleryWrapper);
+	
+	if (closeBtn) {
+		closeBtn.addEventListener('click', () => {		
+			modalOverlay.style.display = 'none';
+			document.body.style.overflow = "visible";
+		});
+	}	
 
-	closeBtn.addEventListener('click', () => {		
-		modalOverlay.style.display = 'none';
-		document.body.style.overflow = "visible";
-	});
 
 	modalOverlay.addEventListener('click', (event) => {
 		if (event.target.matches('.overlay_modal') || event.target.matches('.modal__close')) {
@@ -274,4 +292,22 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.body.style.overflow = "visible";
 		}
 	});
+
+
+
+	/*----------pagination----------*/
+
+	const totalPagPages = 6;
+
+	const toChangePaginationData = () => {
+		if (parseFloat(window.getComputedStyle(document.documentElement).width) < 768) {
+			totalPagPages = 8;
+		} else if (parseFloat(window.getComputedStyle(document.documentElement).width) < 1280) {
+			totalPagPages = 16;
+		} else {
+			totalPagPages = 6;
+		}
+	}
+
+	console.log(totalPagPages);
 });
