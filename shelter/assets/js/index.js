@@ -291,7 +291,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	/*----------pagination----------*/
 
-	let totalPagPages = 6;
+	const nextPagPageBtn = document.querySelector('#next-page'),
+		  prevPagPageBtn = document.querySelector('#prev-page'),
+		  firstPagePagBtn = document.querySelector('#first-page'),
+		  lastPagePagBtn = document.querySelector('#last-page'),
+		  currentPagPageNum = document.querySelector('#page-num');
+
+	let totalPagPages = 6,
+		currentPagPage = 1;
 
 	const toChangePaginationData = () => {
 		if (parseFloat(window.getComputedStyle(document.documentElement).width) < 541) {
@@ -304,15 +311,55 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.log(parseFloat(window.getComputedStyle(document.documentElement).width), totalPagPages);
 	}
 	toChangePaginationData();
+
+	const toCheckCurrentPage = (num) => {
+		if (num  == totalPagPages) {
+			nextPagPageBtn.classList.add('btn_inactive');
+			lastPagePagBtn.classList.add('btn_inactive');
+		} else if (num == 1) {
+			prevPagPageBtn.classList.add('btn_inactive');
+			firstPagePagBtn.classList.add('btn_inactive');
+		} else {
+			prevPagPageBtn.classList.remove('btn_inactive');
+			firstPagePagBtn.classList.remove('btn_inactive');
+			nextPagPageBtn.classList.remove('btn_inactive');
+			lastPagePagBtn.classList.remove('btn_inactive');
+		}
+	}
+
+	if (nextPagPageBtn) {
+		nextPagPageBtn.addEventListener('click', () => {
+			if (currentPagPage == totalPagPages) {
+				currentPagPage = totalPagPages;
+			} else {
+				currentPagPage++;
+			}
+
+			toCheckCurrentPage(currentPagPage);
+			
+			currentPagPageNum.textContent = currentPagPage;
+			console.log(currentPagPage, totalPagPages);
+		});
+	}
+
+	if (prevPagPageBtn) {
+		prevPagPageBtn.addEventListener('click', () => {
+			if (currentPagPage == 1) {
+				currentPagPage = 1;
+			} else {
+				currentPagPage--;
+			}
+
+			toCheckCurrentPage(currentPagPage);
+			
+			currentPagPageNum.textContent = currentPagPage;
+			console.log(currentPagPage, totalPagPages);
+		});
+	}
 	
 
 
-
-
-
-
-
-
+	/*----------Window-resize-listener----------*/
 	window.addEventListener('resize', function(){
         this.clearTimeout(doneResizing);
         doneResizing = this.setTimeout(function(){

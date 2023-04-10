@@ -26,5 +26,11 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        #page-num {
+            &:hover{
+                background-color: $color-primary;
+                cursor: auto;
+            }
+        }
     }
 }
