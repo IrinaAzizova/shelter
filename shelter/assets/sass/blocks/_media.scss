@@ -46,8 +46,9 @@
             padding: 0 20px;
         }
         &__wrapper {
-            grid-template: repeat(3, 435px) / repeat(3, 270px);
-            justify-content: space-around;
+            grid-template: repeat(3, 435px) / repeat(2, 270px);
+            column-gap: 40px;
+            justify-content: center;
         }
     }
 }
@@ -115,6 +116,14 @@
         .slider__wrapper {
             justify-content: space-between;
             width: 82%;
+            .pet-card {
+                &:nth-child(7) {
+                    display: none;
+                }
+                &:nth-child(8) {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -167,15 +176,7 @@
         }
         &__wrapper {
             margin: 28px auto 0;
-            grid-template-columns: repeat(2, 270px);
-            .pet-card {
-                &:nth-child(7) {
-                    display: none;
-                }
-                &:nth-child(8) {
-                    display: none;
-                }
-            }
+            
         }
         &__navigation {
             padding-top: 40px;
@@ -343,6 +344,28 @@
             margin-top: 24px;
         }
     }
+
+    .pets-galery {
+        padding: 30px 0 42px;
+        .container {
+            width: 95%;
+            max-width: 95%;
+        }
+        &__wrapper {
+            margin: 40px auto 0;
+            grid-template: repeat(3, 435px) / 270px;
+            .pet-card {
+                @for $i from 4 to 7 {
+                    &:nth-child(#{$i}) {
+                        display: none;
+                    }
+                }                
+            }
+        }
+        &__navigation {
+            width: 100%;
+        }
+    }
 }
 
 
@@ -466,27 +489,7 @@
         }
     }
 
-    .pets-galery {
-        padding: 30px 0 42px;
-        .container {
-            width: 95%;
-            max-width: 95%;
-        }
-        &__wrapper {
-            margin: 40px auto 0;
-            grid-template: repeat(3, 435px) / 270px;
-            .pet-card {
-                @for $i from 4 to 7 {
-                    &:nth-child(#{$i}) {
-                        display: none;
-                    }
-                }                
-            }
-        }
-        &__navigation {
-            width: 100%;
-        }
-    }
+    
 }
 
 

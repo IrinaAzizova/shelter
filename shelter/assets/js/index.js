@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	toListenerResize();
 
-	const toCreateCard = ({img, petName}, animateClass) => {
+	const toCreateCard = ({img, petName},parent, animateClass) => {
 		const card = document.createElement('div');
 		card.classList.add('pet-card', 'animate__animated',animateClass);
 		card.innerHTML = `
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<div class="pet-card__title">${petName}</div>
 			<button class="btn btn_secondary pet-card__btn">Learn more</button>
 		`;
-		slidesContainer.append(card);
+		parent.append(card);
 	}
 
 	const toCalcRandomInt = (minInt, maxInt) => {
@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		return Math.floor(random);
 	}
 
+
+	
 	const toCalculateCardsIndex = () => {
 		let newSlidesIndex = [];
 
@@ -189,28 +191,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 	} */
-	const toCreateSlide = (animateClass) => {
-		if (slidesContainer) {
-			slidesContainer.innerHTML = '';
+	const toCreateSlide = (container,array, animateClass) => {
+		if (container) {
+			container.innerHTML = '';
 			toCalculateCardsIndex().forEach( item => {
-				toCreateCard(petsCatalogue[item], animateClass);
+				toCreateCard(array[item], container, animateClass);
 			});
-		}
-		
+		}		
 	}
-	toCreateSlide('animate__slideInRight');
+	toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
 
 	if (nextBtn) {
 		nextBtn.addEventListener('click', () => {
 			currentSlide = currentSlide == totalStides - 1 ? 0 : currentSlide + 1;
-			toCreateSlide('animate__slideInRight');
+			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
 		});
 	}	
 
 	if (prevBtn) {
 		prevBtn.addEventListener('click', () => {
 			currentSlide = currentSlide == 0 ? totalStides - 1 : currentSlide - 1;
-			toCreateSlide('animate__slideInLeft');
+			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInLeft');
 		}); 
 	}	
 
@@ -289,42 +290,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	/*----------pagination----------*/
+	/*----------pagination-navigation----------*/
 
 	const nextPagPageBtn = document.querySelector('#next-page'),
 		  prevPagPageBtn = document.querySelector('#prev-page'),
 		  firstPagePagBtn = document.querySelector('#first-page'),
 		  lastPagePagBtn = document.querySelector('#last-page'),
-		  currentPagPageNum = document.querySelector('#page-num');
+		  currentPagPageNum = document.querySelector('#page-num'),
+		  galeryContainer = document.querySelector('.pets-galery__wrapper');
 
 	let totalPagPages = 6,
 		currentPagPage = 1;
 
+	const objOfPetsData = {};
+	let arrOfPetsPages = [],
+		petCount = 1;	
+
 	const toChangePaginationData = () => {
 		if (parseFloat(window.getComputedStyle(document.documentElement).width) < 541) {
 			totalPagPages = 16;
-		} else if (parseFloat(window.getComputedStyle(document.documentElement).width) < 992) {
+		} else if (parseFloat(window.getComputedStyle(document.documentElement).width) < 1279) {
 			totalPagPages = 8;
 		} else {
 			totalPagPages = 6;
 		}
-		console.log(parseFloat(window.getComputedStyle(document.documentElement).width), totalPagPages);
+		console.log(window.getComputedStyle(document.documentElement).width);
 	}
 	toChangePaginationData();
+
+	/*----------pagination-slides----------*/
+
+	
+	/*----------Window-resize-listener----------*/
+	window.addEventListener('resize', function(){
+        this.clearTimeout(doneResizing);
+        doneResizing = this.setTimeout(function(){
+            toListenerResize();
+			toChangePaginationData();
+			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
+        }, 500);
+    });	
+
+	
+
+	/* forming an array of 48 elements */
+	for (let repeat = 0; repeat < 6; repeat++) {
+		petsCatalogue.forEach( (item) => {
+			objOfPetsData[petCount] = item;
+			petCount++;
+		});
+	}
+
+	const toCreateGaleryCard = ({petName, img}) => {
+		const card = document.createElement('div');
+		card.classList.add('pet-card');
+		card.innerHTML = `
+			<img src="${img}" alt="${petName}" class="pet-card__img">
+			<div class="pet-card__title">${petName}</div>
+			<button class="btn btn_secondary pet-card__btn">Learn more</button>
+		`;
+		galeryContainer?.append(card);
+	}
+	toCreateGaleryCard(objOfPetsData[1]);
+
+	const toCreateRandArr = (min, max) => {
+		let arr = [];
+		for (let i = 0; i < max; i++) {
+			let randInt = toCalcRandomInt(min, max);
+			arr[i] = randInt;
+			while (arr.indexOf(randInt) != i) {
+				randInt = toCalcRandomInt(min, max);
+				arr[i] = randInt;
+			}
+		}
+		return arr;
+	}
+
+	for (let n = 0; n < totalPagPages; n++) {
+		let ar = toCreateRandArr(1, 48/totalPagPages);
+		console.log(ar);
+		arrOfPetsPages[n] = ar;
+	}
+
+	console.log(arrOfPetsPages);
+
+	
+	const toCreateGaleryPage = (arr) => {
+		if (galeryContainer) {
+			galeryContainer.innerHTML = '';
+			arr.forEach( item => {
+				toCreateGaleryCard(objOfPetsData[item]);
+			});
+		}		
+	}
+	toCreateGaleryPage(arrOfPetsPages[0]);
+	console.log(objOfPetsData);
+	
+
 
 	const toCheckCurrentPage = (num) => {
 		if (num  == totalPagPages) {
 			nextPagPageBtn.classList.add('btn_inactive');
 			lastPagePagBtn.classList.add('btn_inactive');
+			prevPagPageBtn.classList.remove('btn_inactive');
+			firstPagePagBtn.classList.remove('btn_inactive');
 		} else if (num == 1) {
 			prevPagPageBtn.classList.add('btn_inactive');
 			firstPagePagBtn.classList.add('btn_inactive');
+			nextPagPageBtn.classList.remove('btn_inactive');
+			lastPagePagBtn.classList.remove('btn_inactive');
 		} else {
 			prevPagPageBtn.classList.remove('btn_inactive');
 			firstPagePagBtn.classList.remove('btn_inactive');
 			nextPagPageBtn.classList.remove('btn_inactive');
 			lastPagePagBtn.classList.remove('btn_inactive');
 		}
+
+		currentPagPageNum.textContent = currentPagPage;
 	}
 
 	if (nextPagPageBtn) {
@@ -336,9 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 
 			toCheckCurrentPage(currentPagPage);
-			
-			currentPagPageNum.textContent = currentPagPage;
-			console.log(currentPagPage, totalPagPages);
+			toCreateGaleryPage(arrOfPetsPages[currentPagPage - 1]);
 		});
 	}
 
@@ -351,23 +431,25 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 
 			toCheckCurrentPage(currentPagPage);
-			
-			currentPagPageNum.textContent = currentPagPage;
-			console.log(currentPagPage, totalPagPages);
+			toCreateGaleryPage(arrOfPetsPages[currentPagPage - 1]);
+		});
+	}
+
+	if (lastPagePagBtn) {
+		lastPagePagBtn.addEventListener('click', () => {
+			currentPagPage = totalPagPages;			
+			toCheckCurrentPage(currentPagPage);			
+			toCreateGaleryPage(arrOfPetsPages[currentPagPage - 1]);
 		});
 	}
 	
+	if (firstPagePagBtn) {
+		firstPagePagBtn.addEventListener('click', () => {
+			currentPagPage = 1;			
+			toCheckCurrentPage(currentPagPage);			
+			toCreateGaleryPage(arrOfPetsPages[currentPagPage - 1]);
+		});
+	}
 
-
-	/*----------Window-resize-listener----------*/
-	window.addEventListener('resize', function(){
-        this.clearTimeout(doneResizing);
-        doneResizing = this.setTimeout(function(){
-            toListenerResize();
-			toChangePaginationData();
-			toCreateSlide('animate__slideInRight');
-        }, 500);
-    });	
-	
 	
 });
