@@ -214,13 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}); 
 	}	
 
-	window.addEventListener('resize', function(){
-        this.clearTimeout(doneResizing);
-        doneResizing = this.setTimeout(function(){
-            toListenerResize();
-			toCreateSlide('animate__slideInRight');
-        }, 500);
-    });	
+	
 
 
 
@@ -297,17 +291,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	/*----------pagination----------*/
 
-	const totalPagPages = 6;
+	let totalPagPages = 6;
 
 	const toChangePaginationData = () => {
-		if (parseFloat(window.getComputedStyle(document.documentElement).width) < 768) {
-			totalPagPages = 8;
-		} else if (parseFloat(window.getComputedStyle(document.documentElement).width) < 1280) {
+		if (parseFloat(window.getComputedStyle(document.documentElement).width) < 541) {
 			totalPagPages = 16;
+		} else if (parseFloat(window.getComputedStyle(document.documentElement).width) < 992) {
+			totalPagPages = 8;
 		} else {
 			totalPagPages = 6;
 		}
+		console.log(parseFloat(window.getComputedStyle(document.documentElement).width), totalPagPages);
 	}
+	toChangePaginationData();
+	
 
-	console.log(totalPagPages);
+
+
+
+
+
+
+
+	window.addEventListener('resize', function(){
+        this.clearTimeout(doneResizing);
+        doneResizing = this.setTimeout(function(){
+            toListenerResize();
+			toChangePaginationData();
+			toCreateSlide('animate__slideInRight');
+        }, 500);
+    });	
+	
+	
 });
