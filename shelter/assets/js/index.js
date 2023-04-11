@@ -314,22 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			totalPagPages = 6;
 		}
-		console.log(window.getComputedStyle(document.documentElement).width);
 	}
 	toChangePaginationData();
 
 	/*----------pagination-slides----------*/
 
-	
-	/*----------Window-resize-listener----------*/
-	window.addEventListener('resize', function(){
-        this.clearTimeout(doneResizing);
-        doneResizing = this.setTimeout(function(){
-            toListenerResize();
-			toChangePaginationData();
-			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
-        }, 500);
-    });	
 
 	
 
@@ -368,7 +357,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	for (let n = 0; n < totalPagPages; n++) {
 		let ar = toCreateRandArr(1, 48/totalPagPages);
-		console.log(ar);
 		arrOfPetsPages[n] = ar;
 	}
 
@@ -384,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}		
 	}
 	toCreateGaleryPage(arrOfPetsPages[0]);
-	console.log(objOfPetsData);
 	
 
 
@@ -451,5 +438,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	
+	
+	/*----------Window-resize-listener----------*/
+	
+	window.addEventListener('resize', function(){
+        this.clearTimeout(doneResizing);
+        doneResizing = this.setTimeout(function(){
+            toListenerResize();
+			toCreateSlide(slidesContainer, petsCatalogue, 'animate__slideInRight');
+			toChangePaginationData();
+			for (let n = 0; n < totalPagPages; n++) {
+				let ar = toCreateRandArr(1, 48/totalPagPages);
+				arrOfPetsPages[n] = ar;
+			}
+			toCreateGaleryPage(arrOfPetsPages[0]);
+		console.log(window.getComputedStyle(document.documentElement).width, totalPagPages);
+        }, 500);
+    });	
 	
 });
